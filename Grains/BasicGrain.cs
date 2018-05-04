@@ -16,5 +16,16 @@ namespace Grains
             Console.WriteLine(string.Format("{0}:{1}", DateTime.Now.ToString("yyyy-MM-dd HH:mm"), hellostr));
             return Task.FromResult<string>("done");
         }
+        /// <summary>
+        /// 延迟的消息
+        /// </summary>
+        /// <param name="hellomsg"></param>
+        /// <returns></returns>
+        public Task<string> DelayMsg(string hellomsg)
+        {
+            System.Threading.Thread.Sleep(3000);
+            Console.WriteLine("{0}:延迟消息---{1}",DateTime.Now.ToString("HH:mm:ss.fff"),hellomsg);
+            return Task.FromResult<string>("延迟的Done");
+        }
     }
 }
